@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Intro - Props</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    class Profile extends React.Component {
+      render() {
+        return (
+          <div>
+            <Welcome person={this.props.person}/>
+            {this.props.children}
+            <Comments comments={this.props.person.comments} />
+          </div>
+        )
+      }
+    }
+
+    class Welcome extends React.Component {
+      render() {
+        const person = this.props.person
+        return (
+          <div>
+            Seja bem-vindo, <strong>{person.name} {person.surname}</strong>
+          </div>
+        )
+      }
+    }
+
+    class Comments extends React.Component {
+      render() {
+        const comments = this.props.comments.map((comment, index) =>
+          <li key={index}><Comment comment={comment} /></li>
+        )
+        return (
+          <div>
+            Veja seus comentários:
+            <ul>{comments}</ul>
+          </div>
+        )
+      }
+    }
+
+    class Comment extends React.Component {
+      render() {
+        return <em>{this.props.comment}</em>
+      }
+    }
+
+    class Address extends React.Component {
+      render() {
+        const address = this.props.address
+        return (
+          <div>
+            <strong>Address</strong>
+            <ul>
+              <li>Street: {address.street}</li>
+              <li>Number: {address.number}</li>
+            </ul>
+          </div>
+        )
+      }
+    }
+
+    const person = {
+      name: "Helton",
+      surname: "Souza",
+      comments: [
+        "Legal!",
+        "Muuuuito chato",
+        "Muito bom!"
+      ]
+    }
+
+    const address = {
+      street: "Rua ABC",
+      number: 123
+    }
+
+    ReactDOM.render(
+      <Profile person={person}>
+        <Address address={address} />
+      </Profile>,
+      document.getElementById("container")
+    )
+  </script>
+</body>
+</html>

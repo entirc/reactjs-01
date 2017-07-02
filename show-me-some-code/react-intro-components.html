@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Intro - Components</title>
+  <style>
+    #container {
+      padding: 50px;
+      background-color: #EEE;
+    }
+
+    #container h1 {
+      font-size: 30px;
+      font-family: sans-serif;
+      color: #0080A8;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    //ES6 + JSX
+
+    const ReactWithoutJSX = React.createClass({
+      render: () => React.createElement(
+        'h1',
+        null,
+        'React without JSX'
+      )
+    })
+
+    const ReactWithJSX = React.createClass({
+      render: () => <h1>React with JSX!</h1>
+    })
+
+    const ReactWithFunctionAndJSX = () => <h1>React with just a function!</h1>
+
+    class ReactWithClassAndJSX extends React.Component {
+      render() {
+        return <h1>React with a class!</h1>
+      }
+    }
+
+    const ReactComponent = React.createClass({
+      render() {
+        return <h1>Hello World!</h1>
+      }
+    })
+
+    ReactDOM.render(
+      <div>
+        <ReactWithoutJSX />
+        <ReactWithJSX />
+        <ReactWithFunctionAndJSX />
+        <ReactWithClassAndJSX />
+        <ReactComponent />
+      </div>,
+      document.getElementById("container")
+    )
+  </script>
+</body>
+</html>

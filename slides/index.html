@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>React JS #01</title>
+</head>
+<body>
+  <textarea id="source">
+
+background-image: url(images/react-logo.png)
+background-size: contain
+background-color: black
+
+---
+
+# Agenda
+
+- Introdução
+- Multi-Page Apps
+- Single-Page Apps
+- React JS
+  - Principais features
+  - Principais "concorrentes"
+- *Show me some code!*
+- Referências
+
+---
+
+# Introdução
+
+- Desenvolvimento web com ecossistema rico
+- Mudanças rápidas e frequentes
+  - Mudança na forma de desenvolver web apps
+    - Abordagens:
+      - Multi-Page Apps
+      - Single-Page Apps
+
+---
+
+# Multi-Page Apps
+
+- Quase cada ação redireciona para uma nova página
+- Gerenciamento de estado via
+  - cookies
+  - mecanismos server-side
+
+---
+
+# Single-Page Apps (SPA)
+
+- Não existem diferentes páginas para navegação
+- Não há reload de página
+- AJAX (*XMLHttpRequest*)
+- Views carregadas na mesma página
+	- Views são atualizadas de acordo com a interação do usuário
+  - Possibilidade de aplicação de efeitos (em transições)
+- Melhor experiência de usuário (interface mais fluída)
+
+---
+
+# Exemplos famosos de SPAs
+
+--
+.center[<img src="images/gmail-logo.png" alt="Gmail Logo" style="width: 125px;"/>]
+--
+.center[<img src="images/facebook-logo.png" alt="Facebook Logo" style="width: 125px;"/>]
+--
+.center[<img src="images/twitter-logo.png" alt="Twitter Logo" style="width: 125px;"/>]
+--
+.center[<img src="images/instagram-logo.jpg" alt="Instagram Logo" style="width: 125px;"/>]
+
+---
+
+# Problemas:
+
+- Sincronizar dados entre a view e o modelo
+- Manipulação do DOM é muito lenta
+- Trabalhar com templates de HTML pode ser difícil de gerenciar (exemplo abaixo usando **Mustache**)
+
+```javascript
+var view = {
+	pessoa: "Pedro",
+	dinheiro: function() {
+		return 2 + 4;
+	}
+}
+
+var output = Mustache.render("{{pessoa}} gastou {{dinheiro}} hoje.", view)
+```
+
+---
+
+# React JS
+
+- É uma biblioteca para criar interfaces
+- Lançado em 2013 pelo Facebook
+- Voltado para desenvolvimento de SPAs
+- Open source: [React no GitHub](https://github.com/facebook/react)
+- Suporte à sintaxe JSX
+
+---
+
+## Principais features de React
+
+--
+- Gerenciamento automático de estado da interface de usuário
+
+--
+- Fluxo unidirecional de dados (Modelo => View)
+
+--
+- Virtual DOM
+
+--
+- Views definidas completamente em JavaScript
+  - Exemplo com JSX:
+
+```javascript
+ReactDOM.render(
+  <div>
+    <h1>Batman</h1>
+    <h1>Mega Man</h1>
+  </div>,
+  document.getElementById('container')
+);
+```
+---
+
+Exemplo com JavaScript puro:
+
+```javascript
+ReactDOM.render(
+  React.createElement(
+    "div",
+    null,
+    React.createElement(
+      "h1",
+      null,
+      "Batman"
+    ),
+    React.createElement(
+      "h1",
+      null,
+      "Mega Man"
+    )
+  ),
+  document.getElementById('container')
+);
+```
+
+---
+
+## Principais features de React (continuação)
+
+--
+- É apenas o **V** na arquitetura **MVC**
+
+--
+- APIs para criação de interfaces componentizadas
+
+.center[<img src="images/russian-dolls.jpg" alt="Bonecas russas" style="width: 300px;">]
+
+---
+
+## Principais "concorrentes"
+
+.center[<img src="images/angular-logo.png" alt="Angular JS" style="width: 200px;">]
+.center[<img src="images/vuejs-logo.png" alt="Vue JS" style="width: 200px;">]
+
+---
+
+background-image: url(images/show-me-the-code.jpg)
+background-size: contain
+
+---
+
+class: center, middle
+
+# <a href="../show-me-some-code/react-intro-components.html" target="_blank">React Components</a>
+# <a href="../show-me-some-code/react-intro-props.html" target="_blank">React Properties</a>
+
+---
+
+# Referências
+
+## Links
+- [React](https://facebook.github.io/react/)
+- [React - Docs](https://facebook.github.io/react/docs/hello-world.html)
+- [React - Tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+- [React - JSX in Depth](https://facebook.github.io/react/docs/jsx-in-depth.html)
+- [JSX](https://jsx.github.io/)
+- [awesome-react](https://github.com/enaqx/awesome-react)
+- [Sites Usando React](https://github.com/facebook/react/wiki/Sites-Using-React)
+- [CodeSandbox - React Online Playground](https://codesandbox.io)
+- [React Express](http://www.react.express/)
+
+---
+
+# Referências (continuação)
+
+## Cursos
+- [Modern React and Redux](https://www.udemy.com/react-redux/)
+- [Advanced React and Redux](https://www.udemy.com/react-redux-tutorial/)
+
+---
+
+# Referências (continuação)
+
+## Livros
+- [Learning React](https://www.amazon.com/Learning-React-Kirupa-Chinnathambi/dp/0134546318)
+.center[<img src="https://images-na.ssl-images-amazon.com/images/I/51TmSyyUiJL._SX385_BO1,204,203,200_.jpg" alt="Livro Learning React"  style="width: 200px;">]
+
+  </textarea>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
